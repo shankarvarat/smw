@@ -2,40 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SOCIAL Media Website</title>
+    <title>Welcome</title>
+    <style>
+        div{
+        border:10 px solid red;
+        color:pink;
+        }
+    </style>
 </head>
-<a>
+<body>
+<div>
 
-<header style="size:20px;color:pink;">Authors Details ...</header>
-    <div style="padding:20px;margine:20px;border:15px solid blue;">
-         <a href="authorform"> Create New author </a>
-        <strong><a href="postform"> Create New Post </a></strong>
-
-
-    </div>
-{% for k in data %}
-<br> <br>
-<div style="border:5px solid red;padding:2px;margine:2px;">
-    <label>Post Id</label>
-{{k.pid}}
-    <br>
-    <label>Author Name : </label>
-    {{k.Author}}
-    <br>
-    <label>Created At</label>
-    {{k.cdate}}
-     <br>
-    <label>Post</label>
-    {{k.post}}
-
-
-    <br>
-    <a href="edit" <button type="button">Edit /Update </button> </a>
-    <br>
-    <a href="delete" <button type="button">Delete</button> </a>
-    <br>
-
+    <h1> Welcome To SMW Internationals !!</h1>
+    {{form}}
 </div>
-{% endfor %}
 </body>
 </html>

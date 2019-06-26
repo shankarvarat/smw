@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+</head>
+<body>
+<h1> Sign up Form</h1>
+<div>
+    {{error}}
+    <form method="POST" action="signup">
+        {% csrf_token %}
+        <label> Username : </label>
+        <input type="text" name="username"> <br> <br>
+
+         <label> Email : </label>
+        <input type="email" name="email"> <br> <br>
+
+         <label>Password :  </label>
+        <input type="password" name="password1"> <br> <br>
+
+         <label> Repeat Passwaord :  </label>
+        <input type="password" name="password2"> <br> <br>
+
+        <input type="submit" value="Sign Up"> <br> <br>
+    </form>
+</div>
+</body>
+</html>

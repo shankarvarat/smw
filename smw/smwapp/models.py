@@ -1,18 +1,29 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
-class Author(models.Model):
-    Aid=models.IntegerField(primary_key=True,auto_created=True,null=False)
-    Aname=models.CharField(max_length=80)
-    Adob=models.DateField()
-    def __str__(self):
-        return self.Aname
-class Post(models.Model):
-    pid=models.IntegerField(primary_key=True,auto_created=True,null=False)
-    title=models.CharField(max_length=80)
-    Author=models.ForeignKey(to=Author,on_delete='CASCADE')
-    post=models.TextField(max_length=200)
-    cdate=models.DateField(auto_now_add=True)
-    def __str__(self):
-        return self.title
+from django.contrib.auth.forms import UserCreationForm
 
+m="male"
+f="female"
+gen=[(m,'m'),(f,'f')]
+s="Singale"
+M="Married"
+rel=[(s,'s'),(M,'M')]
+
+class profile(models.Model):
+    user=models.OneToOneField(User,on_delete='CASCADE')
+    nickname=models.CharField(max_length=50)
+    dob=models.DateField(null=True)
+    phoneno=models.IntegerField()
+    gender=models.CharField(choices=gen,max_length=50)
+    relation=models.CharField(choices=rel,max_length=50)
+
+class frends(models.Model):
+        user = models.OneToOneField(User, on_delete='CASCADE')
+        frend= models.CharField(max_length=50)
+        status = models.BooleanField(default=False)
+class post(models.Model):
+    post_d=models.TextField(max_length=300)
+    created_at=models.DateField(auto_now_add=True)
+    tag=models.ForeignKey(frends,null=True,on_delete='CASCADE')
+    user=models.OneToOneField(User,on_delete='CASCADE')

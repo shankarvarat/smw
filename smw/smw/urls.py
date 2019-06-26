@@ -15,14 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from smwapp import views
-
+from smwapp import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index',views.home),
-    path('', views.home),
-
-    path('authorform', views.authorform),
-    path('postform', views.postform),
-
+    path('', include('smwapp.urls'))
 ]

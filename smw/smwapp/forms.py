@@ -1,12 +1,11 @@
 from django import forms
-
+from django.contrib.auth.models import User
 from .models import *
 
-class AuthorForm(forms.ModelForm):
+
+
+class profileform(forms.ModelForm):
     class Meta:
-        model=Author
-        fields='__all__'
-class Postform(forms.ModelForm):
-    class Meta:
-        model=Post
-        fields='__all__'
+         model=profile
+         fields='__all__'
+
