@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign up</title>
-</head>
-<body>
+
+{% extends 'base.html' %}
+{% block content %}
 <h1> Sign up Form</h1>
 <div>
     {{error}}
@@ -25,5 +21,4 @@
         <input type="submit" value="Sign Up"> <br> <br>
     </form>
 </div>
-</body>
-</html>
+{% endblock %}

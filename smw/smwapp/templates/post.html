@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Social Media Website</title>
+</head>
+<body>
+
+
+<div>
+    <form method="POST" action="post">
+        {%csrf_token%}
+        <h1>{{error}}</h1>
+        <label>post</label>
+        <input type="text" name="post_d">
+        <br>
+        <label>user</label>
+        <input type="text" name="user" value="{{user}}">
+
+        <br>
+        <input type="submit" value="Create Post">
+    </form>
+
+    </form>
+</div>
+</body>
+</html>

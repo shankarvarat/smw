@@ -3,27 +3,35 @@ from django.contrib.auth.models import User
 # Create your models here.
 from django.contrib.auth.forms import UserCreationForm
 
-m="male"
-f="female"
-gen=[(m,'m'),(f,'f')]
-s="Singale"
-M="Married"
-rel=[(s,'s'),(M,'M')]
+m="m"
+f="f"
+gen=[(m,'Male'),(f,'Female')]
+s="s"
+M="M"
+rel=[(s,'Singale'),(M,'Marrid')]
 
 class profile(models.Model):
-    user=models.OneToOneField(User,on_delete='CASCADE')
     nickname=models.CharField(max_length=50)
+    user=models.OneToOneField(User,on_delete='CASCADE')
+
     dob=models.DateField(null=True)
     phoneno=models.IntegerField()
     gender=models.CharField(choices=gen,max_length=50)
     relation=models.CharField(choices=rel,max_length=50)
+    def __str__(self):
+        return self.nickname
 
 class frends(models.Model):
-        user = models.OneToOneField(User, on_delete='CASCADE')
-        frend= models.CharField(max_length=50)
+        user = models.ManyToManyField(User)
+        profile= models.ManyToManyField(profile,max_length=50)
         status = models.BooleanField(default=False)
+
+
 class post(models.Model):
     post_d=models.TextField(max_length=300)
+
     created_at=models.DateField(auto_now_add=True)
     tag=models.ForeignKey(frends,null=True,on_delete='CASCADE')
     user=models.OneToOneField(User,on_delete='CASCADE')
+    def __str__(self):
+        return self.post_d
