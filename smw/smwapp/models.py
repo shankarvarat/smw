@@ -22,16 +22,19 @@ class profile(models.Model):
         return self.nickname
 
 class frends(models.Model):
-        user = models.ManyToManyField(User)
+        user = models.ForeignKey(profile,max_length=100,on_delete='CASCADE')
         profile= models.ManyToManyField(profile,max_length=50)
         status = models.BooleanField(default=False)
 
 
 class post(models.Model):
-    post_d=models.TextField(max_length=300)
+    post_details=models.TextField(max_length=300)
 
     created_at=models.DateField(auto_now_add=True)
-    tag=models.ForeignKey(frends,null=True,on_delete='CASCADE')
     user=models.OneToOneField(User,on_delete='CASCADE')
     def __str__(self):
         return self.post_d
+
+class tag(models.Model):
+    post=models.ForeignKey(post,on_delete='CASCADE')
+    tag=models.ManyToManyField(frends)
