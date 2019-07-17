@@ -1,4 +1,4 @@
 # smw
 _____________________________________________________________________________________________________________
-create a simpale Social Media Site
+create a simpale Social Media Site with 
 Python Django
